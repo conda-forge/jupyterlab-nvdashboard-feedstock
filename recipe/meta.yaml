@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script:
     - {{ PYTHON }} -m pip install . -vv
     - jupyter labextension install jupyterlab-nvdashboard@{{ version }}
@@ -28,6 +28,7 @@ requirements:
     - bokeh
     - pynvml
     - psutil
+    - nodejs
 
 test:
   imports:
