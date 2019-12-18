@@ -28,6 +28,7 @@ requirements:
     - bokeh
     - pynvml
     - psutil
+    - nodejs
 
 test:
   imports:
