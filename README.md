@@ -119,4 +119,4 @@ Feedstock Maintainers
 
 * [@jacobtomlinson](https://github.com/jacobtomlinson/)
 * [@rjzamora](https://github.com/rjzamora/)
-
+* [@owenlamont](https://github.com/owenlamont)
