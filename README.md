@@ -118,5 +118,6 @@ Feedstock Maintainers
 =====================
 
 * [@jacobtomlinson](https://github.com/jacobtomlinson/)
+* [@owenlamont](https://github.com/owenlamont/)
 * [@rjzamora](https://github.com/rjzamora/)
-* [@owenlamont](https://github.com/owenlamont)
+
