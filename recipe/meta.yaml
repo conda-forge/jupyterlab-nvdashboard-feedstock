@@ -1,5 +1,5 @@
 {% set name = "jupyterlab-nvdashboard" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/rapidsai/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 63c69cd8a90504c9fdbdaf0e1c0ed7a1c8d6626fba50e56c3e5ccb65c93da651
+  sha256: 3c73ec36d56c5f4882fcb58c159b23bbe74e55a2e1e70c6a1378b2f392850f44
 
 build:
   noarch: python
@@ -21,11 +21,11 @@ requirements:
   host:
     - python >=3.5
     - pip
-    - jupyterlab <2
+    - jupyterlab >=2.0
     - nodejs
   run:
     - python >=3.5
-    - jupyterlab <2
+    - jupyterlab >=2.0
     - jupyter-server-proxy
     - bokeh <2
     - pynvml
