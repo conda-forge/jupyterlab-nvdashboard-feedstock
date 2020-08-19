@@ -1,5 +1,5 @@
 {% set name = "jupyterlab-nvdashboard" %}
-{% set version = "0.3.1" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/rapidsai/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 3c73ec36d56c5f4882fcb58c159b23bbe74e55a2e1e70c6a1378b2f392850f44
+  sha256: b300061ddb5691027aa327e3d1f719ef40960a181cbd593c5b639f050a354b60
 
 build:
   noarch: python

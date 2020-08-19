@@ -5,7 +5,7 @@ Home: https://github.com/rapidsai/jupyterlab-nvdashboard
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: A JupyterLab extension for displaying dashboards of GPU usage
 
