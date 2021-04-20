@@ -1,5 +1,5 @@
 {% set name = "jupyterlab-nvdashboard" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/rapidsai/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: b300061ddb5691027aa327e3d1f719ef40960a181cbd593c5b639f050a354b60
+  sha256: 16140d697ee8ea4d177f4bc4845521e8b191ed8eb230e9c7553082dca931edea
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script:
     - {{ PYTHON }} -m pip install . -vv
     - jupyter labextension install jupyterlab-nvdashboard@{{ version }}
@@ -21,11 +21,11 @@ requirements:
   host:
     - python >=3.5
     - pip
-    - jupyterlab >=2.0
+    - jupyterlab >=2.0,<3
     - nodejs
   run:
     - python >=3.5
-    - jupyterlab >=2.0
+    - jupyterlab >=2.0,<3
     - jupyter-server-proxy
     - bokeh >2.1
     - pynvml
