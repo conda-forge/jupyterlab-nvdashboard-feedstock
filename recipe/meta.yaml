@@ -1,5 +1,5 @@
 {% set name = "jupyterlab-nvdashboard" %}
-{% set version = "0.5.0" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,37 +7,38 @@ package:
 
 source:
   url: https://github.com/rapidsai/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 16140d697ee8ea4d177f4bc4845521e8b191ed8eb230e9c7553082dca931edea
+  sha256: 81110fdf6f44768068bdf3d2d61f5e779c33184d02cc3eee30a588c73a75563f
 
 build:
   noarch: python
   number: 0
   script:
-    - {{ PYTHON }} -m pip install . -vv
-    - jupyter labextension install jupyterlab-nvdashboard@{{ version }}
-    - jupyter lab build
+    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   host:
-    - python >=3.5
+    - python >=3.7
     - pip
-    - jupyterlab >=2.0,<3
-    - nodejs
-  run:
-    - python >=3.5
-    - jupyterlab >=2.0,<3
-    - jupyter-server-proxy
-    - bokeh >2.1
+    - setuptools
     - pynvml
     - psutil
     - nodejs
+    - jupyter-packaging >=0.7.0,<0.8
+    - jupyterlab >=3.0.0,<4
+  run:
+    - python >=3.7
+    - jupyterlab >=3.0.0,<4
+    - jupyter-server-proxy >=1.3.2
+    - bokeh >2.1
+    - pynvml
+    - psutil
 
 test:
   imports:
     - jupyterlab_nvdashboard
 
 about:
-  home: https://github.com/rapidsai/jupyterlab-nvdashboard
+  home: https://rapids.ai
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
