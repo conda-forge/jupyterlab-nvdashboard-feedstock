@@ -22,6 +22,7 @@ requirements:
     - setuptools
     - hatchling >=1.5.0
     - hatch-nodejs-version >=0.3.2
+    - hatch-jupyter-builder >=0.5
     - pynvml
     - psutil
     - nodejs
