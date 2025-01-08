@@ -11,13 +11,13 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - setuptools
     - hatchling >=1.5.0
@@ -29,12 +29,14 @@ requirements:
     - jupyter-packaging
     - jupyterlab >=4
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - jupyterlab >=4
     - pynvml
     - psutil
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - jupyterlab_nvdashboard
 
