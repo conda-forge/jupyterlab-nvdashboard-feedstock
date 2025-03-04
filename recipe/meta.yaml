@@ -1,6 +1,9 @@
 {% set name = "jupyterlab-nvdashboard" %}
 {% set version = "0.12.0" %}
 
+{% set python_min = "3.8" %}
+
+
 package:
   name: {{ name|lower }}
   version: {{ version }}
@@ -11,13 +14,13 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script:
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - setuptools
     - hatchling >=1.5.0
@@ -27,13 +30,14 @@ requirements:
     - jupyter-packaging
     - jupyterlab >=4
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - jupyterlab >=4
     - pynvml >=11.0.0,<12.0.0a0
     - psutil
 
 test:
   requires:
+    - python {{ python_min }}
     - pip
   commands:
     - pip check
