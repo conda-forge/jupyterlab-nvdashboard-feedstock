@@ -33,6 +33,10 @@ requirements:
     - psutil
 
 test:
+  requires:
+    - pip
+  commands:
+    - pip check
   imports:
     - jupyterlab_nvdashboard
 
