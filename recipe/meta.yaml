@@ -10,31 +10,32 @@ source:
   sha256: fdc2739627eb1047c6b2df35045b654e07924fc9f6f8d490a34967365e75fd60
 
 build:
+  number: 1
   noarch: python
-  number: 0
   script:
-    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+    - {{ PYTHON }} -m pip install . -vvv
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
-    - setuptools
-    - hatchling >=1.5.0
-    - hatch-nodejs-version >=0.3.2
-    - hatch-jupyter-builder >=0.5
-    - pynvml
-    - psutil
     - nodejs
-    - jupyter-packaging
-    - jupyterlab >=4
+    - hatch-jupyter-builder >=0.5
+    - hatch-nodejs-version >=0.3.2
+    - hatchling >=1.5.0
+    - jupyterlab >=4.0.0
   run:
-    - python >=3.8
-    - jupyterlab >=4
-    - pynvml
+    - python >={{ python_min }}
+    - jupyterlab >=4.0.0
     - psutil
+    - pynvml >=11.0.0,<12.0.0a0
 
 test:
+  requires:
+    - python {{ python_min }}
+    - pip
+  commands:
+    - pip check
   imports:
     - jupyterlab_nvdashboard
 
