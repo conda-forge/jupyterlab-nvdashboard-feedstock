@@ -26,7 +26,7 @@ requirements:
     - jupyterlab >=4.0.0
   run:
     - python >={{ python_min }}
-    - jupyterlab >=4
+    - jupyterlab >=4.0.0
     - psutil
     - pynvml >=12.0.0,<13.0.0a0
 
