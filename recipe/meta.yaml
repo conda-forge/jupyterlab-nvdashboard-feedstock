@@ -53,6 +53,7 @@ about:
 extra:
   recipe-maintainers:
     - jameslamb
+    - ncclementi
     - jacobtomlinson
     - rjzamora
     - owenlamont
