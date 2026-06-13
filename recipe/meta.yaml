@@ -1,5 +1,5 @@
 {% set name = "jupyterlab-nvdashboard" %}
-{% set version = "0.13.0" %}
+{% set version = "0.14.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/rapidsai/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 3a9d1e7142b700fb51bffdab5935ba1d4a8a824fdd5b09540a3c2a76a5e1a961
+  sha256: 0f4695abd8cbd739740101dbfc913430861274bb19e3f5aa67b8b47ebd0f3957
 
 build:
   number: 0
@@ -25,6 +25,8 @@ requirements:
     - hatchling >=1.5.0
     - jupyterlab >=4.0.0
   run:
+    - nvidia-ml-py >=12
+    - tornado
     - python >={{ python_min }}
     - jupyterlab >=4.0.0
     - psutil
