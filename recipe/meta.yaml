@@ -1,19 +1,19 @@
 {% set name = "jupyterlab-nvdashboard" %}
-{% set version = "0.13.0" %}
+{% set version = "0.14.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
   url: https://github.com/rapidsai/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 3a9d1e7142b700fb51bffdab5935ba1d4a8a824fdd5b09540a3c2a76a5e1a961
+  sha256: 0f4695abd8cbd739740101dbfc913430861274bb19e3f5aa67b8b47ebd0f3957
 
 build:
   number: 0
   noarch: python
   script:
-    - {{ PYTHON }} -m pip install . -vvv
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
@@ -25,10 +25,11 @@ requirements:
     - hatchling >=1.5.0
     - jupyterlab >=4.0.0
   run:
-    - python >={{ python_min }}
     - jupyterlab >=4.0.0
+    - nvidia-ml-py >=12.0.0
+    - python >={{ python_min }}
     - psutil
-    - pynvml >=12.0.0,<13.0.0a0
+    - tornado
 
 test:
   requires:
@@ -36,6 +37,7 @@ test:
     - pip
   commands:
     - pip check
+    - python -c "import jupyterlab_nvdashboard; assert jupyterlab_nvdashboard.__version__ == '{{ version }}'"
   imports:
     - jupyterlab_nvdashboard
 

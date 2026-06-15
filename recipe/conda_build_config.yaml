@@ -1,0 +1,6 @@
+# override conda's global python_min configuration (https://github.com/conda-forge/conda-forge-pinning-feedstock/).
+#
+# jupyterlab-nvdashboard tends to drop support for old Python versions earlier than conda-forge does.
+#
+python_min:
+  - '3.11'
