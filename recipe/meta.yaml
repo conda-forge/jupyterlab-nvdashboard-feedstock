@@ -13,7 +13,7 @@ build:
   number: 0
   noarch: python
   script:
-    - {{ PYTHON }} -m pip install . -vvv
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
@@ -37,9 +37,9 @@ test:
     - pip
   commands:
     - pip check
+    - python -c "import jupyterlab_nvdashboard; assert jupyterlab_nvdashboard.__version__ == '{{ version }}'"
   imports:
     - jupyterlab_nvdashboard
-    - jupyterlab_nvdashboard.__version__
 
 about:
   home: https://rapids.ai
