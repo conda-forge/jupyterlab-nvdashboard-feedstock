@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/j/jupyterlab-nvdashboard/jupyterlab_nvdashboard-${{ version }}.tar.gz
+  url: https://pypi.org/packages/source/j/jupyterlab-nvdashboard/jupyterlab_nvdashboard-{{ version }}.tar.gz
   sha256: 0e518de535454a385b124022b3393988bdeb11dd9f1ddf4d2b8ca5d33393a6dc
 
 build:
