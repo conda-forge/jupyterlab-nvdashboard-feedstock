@@ -3,7 +3,7 @@ About jupyterlab-nvdashboard-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/jupyterlab-nvdashboard-feedstock/blob/main/LICENSE.txt)
 
-Home: https://rapids.ai
+Home: https://rapids.ai/
 
 Package license: BSD-3-Clause
 
@@ -14,7 +14,6 @@ Development: https://github.com/rapidsai/jupyterlab-nvdashboard
 Documentation: https://github.com/rapidsai/jupyterlab-nvdashboard
 
 A JupyterLab extension for displaying dashboards of GPU usage.
-
 
 Current build status
 ====================
