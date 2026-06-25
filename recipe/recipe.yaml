@@ -1,0 +1,66 @@
+schema_version: 1
+
+context:
+  name: jupyterlab-nvdashboard
+  version: 0.15.0
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/j/jupyterlab-nvdashboard/jupyterlab_nvdashboard-${{ version }}.tar.gz
+  sha256: 0e518de535454a385b124022b3393988bdeb11dd9f1ddf4d2b8ca5d33393a6dc
+
+build:
+  number: 0
+  noarch: python
+  script:
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - nodejs >=22
+    - hatch-jupyter-builder >=0.5
+    - hatch-nodejs-version >=0.3.2
+    - hatchling >=1.5.0
+    - jupyter-builder >=1.0
+  run:
+    - jupyterlab >=4.0.0
+    - nvidia-ml-py >=12.0.0
+    - python >=${{ python_min }}
+    - psutil
+    - tornado
+
+tests:
+  - python:
+      imports:
+        - jupyterlab_nvdashboard
+  - requirements:
+      run:
+        - python ${{ python_min }}.*
+        - pip
+    script:
+      - pip check
+      - python -c "import jupyterlab_nvdashboard; assert jupyterlab_nvdashboard.__version__ == '${{ version }}'"
+
+about:
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+  summary: A JupyterLab extension for displaying dashboards of GPU usage
+  description: |
+    A JupyterLab extension for displaying dashboards of GPU usage.
+  homepage: https://rapids.ai
+  repository: https://github.com/rapidsai/jupyterlab-nvdashboard
+  documentation: https://github.com/rapidsai/jupyterlab-nvdashboard
+
+extra:
+  recipe-maintainers:
+    - jameslamb
+    - ncclementi
+    - jacobtomlinson
+    - rjzamora
+    - owenlamont
+    - AjayThorve
